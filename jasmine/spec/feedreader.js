@@ -65,11 +65,17 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-         //expect displayed when clicked
-         //expect hidden when clicked again
+         it('is hidden when clicked', function() {
+            //expect displayed when clicked
+            document.querySelector(`.menu-icon-link`).click()
+            expect(document.querySelector(`body`).className).not.toBe(`menu-hidden`); 
 
+            //expect hidden when clicked again
+            document.querySelector(`.menu-icon-link`).click()
+            expect(document.querySelector(`body`).className).toBe(`menu-hidden`); 
+        });
     });
-    
+
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', () =>  {
         /* TODO: Write a test that ensures when the loadFeed

@@ -102,5 +102,18 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        let oldFeedLength = 0;
+        beforeEach(function(done) {
+            oldFeedLength = document.getElementsByClassName(`feed`)[0].children[0].innerText;
+            loadFeed(1, function() {
+                done();
+            })
+        });
+
+        it('loadFeed changes', function(done) {
+            const newFeedLength = document.getElementsByClassName(`feed`)[0].children[0].innerText;
+            expect(newFeedLength !== oldFeedLength).toBe(true); 
+            done();
+        });
     });
 }());

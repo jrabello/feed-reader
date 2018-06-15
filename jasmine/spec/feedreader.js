@@ -59,8 +59,7 @@ $(function() {
         });
 
         it('loadFeed completes', function(done) {
-            expect($('.feed').text().length > 0).toBe(true); 
-            done();
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
     });
 
